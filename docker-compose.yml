@@ -1,0 +1,9 @@
+services:
+  db:
+    image: bitnami/postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRESQL_DATABASE_NAME=${DATABASE_NAME}
+      - POSTGRESQL_USERNAME=${DATABASE_USERNAME}
+      - POSTGRESQL_PASSWORD=${DATABASE_PASSWORD}
