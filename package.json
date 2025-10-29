@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start:dev": "tsx watch ./src/server.ts",
-    "build": "tsup ./src --out-dir ./build --format esm"
+    "build": "tsup ./src --out-dir ./build --format esm",
+    "test": "vitest run"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/cleyber2010/Find-Friend-API#readme",
   "dependencies": {
+    "@prisma/client": "^6.18.0",
     "dotenv": "^17.2.3",
     "fastify": "^5.6.1",
     "tsx": "^4.20.6",
