@@ -7,7 +7,8 @@
   "scripts": {
     "start:dev": "tsx watch ./src/server.ts",
     "build": "tsup ./src --out-dir ./build --format esm",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -21,15 +22,20 @@
   "homepage": "https://github.com/cleyber2010/Find-Friend-API#readme",
   "dependencies": {
     "@prisma/client": "^6.18.0",
+    "@types/bcrypt": "^6.0.0",
+    "bcrypt": "^6.0.0",
     "dotenv": "^17.2.3",
     "fastify": "^5.6.1",
     "tsx": "^4.20.6",
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-angular": "^20.0.0",
     "@rocketseat/eslint-config": "^2.2.2",
     "@types/node": "^24.9.2",
     "eslint": "^8.57.1",
+    "husky": "^9.1.7",
     "prisma": "^6.18.0",
     "tsup": "^8.5.0",
     "typescript": "^5.9.3",

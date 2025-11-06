@@ -24,6 +24,30 @@ enum Size {
   Grande
 }
 
+model Organization {
+  id               String    @id @default(uuid())
+  responsible_name String
+  email            String
+  phone            String
+  password_hash    String
+  created_at       DateTime?
+  addressess       Address[]
+
+  @@map("organizations")
+}
+
+model Address {
+  id              String       @id @default(uuid())
+  organization    Organization @relation(fields: [organization_id], references: [id])
+  organization_id String
+  street          String
+  cep             String
+  city            String
+  state           String
+
+  @@map("addresses")
+}
+
 model Pet {
   id                 String  @id @default(uuid())
   name               String
