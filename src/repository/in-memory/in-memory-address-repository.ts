@@ -12,4 +12,14 @@ export class InMemoryAddressRepository implements AddressRepositoryInterface {
 
     this.items.push(address)
   }
+
+  async findByAddress(addressId: string){
+    const address = this.items.find(
+      (address) => address.organization_id === addressId,
+    )
+    if (!address) {
+      return null
+    }
+    return address
+  }
 }
