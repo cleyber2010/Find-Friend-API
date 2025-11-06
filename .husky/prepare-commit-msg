@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 
-# Se o usuário não passou uma mensagem com -m
+# Executa o Commitizen automaticamente ao rodar "git commit"
+# (apenas se o usuário não usar -m "mensagem")
 if [ -z "$2" ]; then
   exec < /dev/tty && npx cz --hook || true
-  # Impede o Git de abrir o editor padrão
+  # Evita que o Git abra o editor padrão (commit-editmsg)
   exit 0
 fi
