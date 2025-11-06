@@ -1,16 +1,16 @@
 import type { OrganizationRepositoryInterface } from '../repository/organization-repository-interface'
 import { compare } from 'bcrypt'
 
-interface AuthUseCaseRequest {
+interface AuthenticateUseCaseRequest {
   email: string
   password: string
 }
 
-interface AuthUseCaseResponse {
+interface AuthenticateUseCaseResponse {
   orgId: string
 }
 
-export class AuthUseCase {
+export class AuthenticateUseCase {
   constructor(
     private organizationRepository: OrganizationRepositoryInterface,
   ) {}
@@ -18,13 +18,13 @@ export class AuthUseCase {
   async execute({
     email,
     password,
-  }: AuthUseCaseRequest): Promise<AuthUseCaseResponse> {
+  }: AuthenticateUseCaseRequest): Promise<AuthenticateUseCaseResponse> {
     const organization = await this.organizationRepository.findByEmail(email)
     if (!organization) {
       throw new Error('Invalid email or password')
     }
 
-    const authLogin = compare(password, organization.password_hash)
+    const authLogin = await compare(password, organization.password_hash)
 
     if (!authLogin) {
       throw new Error('Invalid email or password')
