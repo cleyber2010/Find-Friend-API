@@ -1,5 +1,8 @@
+#!/usr/bin/env sh
+
+# Se o usuário não passou uma mensagem com -m
 if [ -z "$2" ]; then
   exec < /dev/tty && npx cz --hook || true
-  # força o Git a usar a mensagem gerada e não abrir o editor
+  # Impede o Git de abrir o editor padrão
   exit 0
 fi
