@@ -9,7 +9,8 @@
     "build": "tsup ./src --out-dir ./build --format esm",
     "test": "vitest run",
     "prepare": "husky",
-    "commit": "cz"
+    "commit": "cz",
+    "commitlint": "commitlint --edit"
   },
   "repository": {
     "type": "git",
