@@ -32,6 +32,7 @@ model Organization {
   password_hash    String
   created_at       DateTime?
   addressess       Address[]
+  pets             Pet[]
 
   @@map("organizations")
 }
@@ -49,7 +50,7 @@ model Address {
 }
 
 model Pet {
-  id                 String  @id @default(uuid())
+  id                 String       @id @default(uuid())
   name               String
   description        String
   age                Age
@@ -58,6 +59,8 @@ model Pet {
   level_independence String
   environment        String
   photos             Photo[]
+  organization       Organization @relation(fields: [organization_id], references: [id])
+  organization_id    String
 
   @@map("pets")
 }
