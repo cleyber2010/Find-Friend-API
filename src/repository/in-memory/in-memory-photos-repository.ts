@@ -4,6 +4,7 @@ import { randomUUID } from 'node:crypto'
 
 export class InMemoryPhotosRepository implements PhotosRepositoryInterface {
   private items: Photo[] = []
+
   async create(data: Prisma.PhotoUncheckedCreateInput) {
     const photo = {
       id: randomUUID(),
